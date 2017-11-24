@@ -1,0 +1,66 @@
+# C More language file
+msgid ""
+msgstr ""
+"Project-Id-Version: plugin.video.cmorefi\n"
+"Report-Msgid-Bugs-To: https://github.com/Dis90/plugin.video.cmorefi\n"
+"POT-Creation-Date: 2017-1-05 23:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Finnish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgctxt "#30000"
+msgid "Account"
+msgstr "Tili"
+
+msgctxt "#30001"
+msgid "Username"
+msgstr "Käyttäjätunnus"
+
+msgctxt "#30002"
+msgid "Password"
+msgstr "Salasana"
+
+msgctxt "#30003"
+msgid "Information"
+msgstr "Info"
+
+msgctxt "#30004"
+msgid "Please enter your login credentials in the add-on settings."
+msgstr ""
+
+msgctxt "#30005"
+msgid "Reset credentials"
+msgstr "Nollaa käyttäjätiedot"
+
+msgctxt "#30006"
+msgid "Error"
+msgstr "Virhe"
+
+msgctxt "#30007"
+msgid "Search"
+msgstr "Haku"
+
+msgctxt "#30008"
+msgid "No results found for"
+msgstr "Ei tuloksia haulle"
+
+msgctxt "#30009"
+msgid "Video settings"
+msgstr "Videoasetukset"
+
+msgctxt "#30010"
+msgid "Use 50fps stream if available"
+msgstr "Käytä 50fps jos saatavilla"
+
+msgctxt "#30011"
+msgid "Favorites"
+msgstr "Suosikit"
+
+msgctxt "#30012"
+msgid "Wrong username or password"
+msgstr "Väärä käyttäjätunnus tai salasana"

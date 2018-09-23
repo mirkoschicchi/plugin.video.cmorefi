@@ -11,6 +11,7 @@ import xbmcvfs
 import xbmcgui
 import xbmcplugin
 from xbmcaddon import Addon
+import inputstreamhelper
 
 class KodiHelper(object):
     def __init__(self, base_url=None, handle=None):
@@ -151,8 +152,10 @@ class KodiHelper(object):
             playitem.setProperty('inputstream.adaptive.manifest_type', 'mpd')
 
             if stream['drm_protected']:
-                playitem.setProperty('inputstream.adaptive.license_type', 'com.widevine.alpha')
-                playitem.setProperty('inputstream.adaptive.license_key', stream['license_url'] + '||R{SSM}|')
+                is_helper = inputstreamhelper.Helper('mpd', drm='com.widevine.alpha')
+                if is_helper.check_inputstream():
+                    playitem.setProperty('inputstream.adaptive.license_type', 'com.widevine.alpha')
+                    playitem.setProperty('inputstream.adaptive.license_key', stream['license_url'] + '||R{SSM}|')
 
             xbmcplugin.setResolvedUrl(self.handle, True, listitem=playitem)
 

@@ -4,7 +4,7 @@ import os
 import urllib
 import re
 
-from cmore import CMore
+from .cmore import CMore
 
 import xbmc
 import xbmcvfs
@@ -131,7 +131,7 @@ class KodiHelper(object):
         if content:
             xbmcplugin.setContent(self.handle, content)
 
-        recursive_url = self.base_url + '?' + urllib.urlencode(params)
+        recursive_url = self.base_url + '?' + urllib.parse.urlencode(params)
 
         if items is False:
             xbmcplugin.addDirectoryItem(self.handle, recursive_url, listitem, folder)

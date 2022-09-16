@@ -118,7 +118,8 @@ class CMore(object):
         url = 'https://www.katsomo.fi/mb/v2/static/svod/web/config/web'
 
         config_data = self.make_request(url, 'get', params='')
-        with open(self.config_path, 'w') as fh_config:
+        self.log("The configuration is %s" % config_data)
+        with open(self.config_path, 'wb') as fh_config:
             fh_config.write(config_data)
 
     def login(self, username=None, password=None):

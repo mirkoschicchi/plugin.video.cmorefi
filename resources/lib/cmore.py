@@ -67,7 +67,7 @@ class CMore(object):
             else:  # post
                 req = self.http_session.post(url, params=params, data=payload, headers=headers)
             self.log('Response code: %s' % req.status_code)
-            self.log('Response: %s' % req.content)
+            # self.log('Response: %s' % req.content)
             self.cookie_jar.save(ignore_discard=True, ignore_expires=False)
             self.raise_cmore_error(req.content)
             return req.content

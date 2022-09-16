@@ -145,7 +145,7 @@ def list_page(dataurl=None, page_data=None, target=None, search_query=None):
             if i.get('groups'):
                 list_tvshow(i)
             # If season id in data = list_episode
-            elif i.get('categoryId'):
+            elif i.get('type') == 'episode':
                 list_episode(i)
             else:
                 list_season(i)
@@ -160,6 +160,9 @@ def list_page(dataurl=None, page_data=None, target=None, search_query=None):
 
         elif i.get('channel'):
             list_channel(i)
+
+        elif i.get('type') == 'episode':
+            list_episode(i)
 
     helper.eod()
 
@@ -397,6 +400,7 @@ def router(paramstring):
     # Parse a URL-encoded paramstring to the dictionary of
     # {<parameter>: <value>} elements
     params = dict(parse_qsl(paramstring))
+
     # Check the parameters passed to the plugin
     if 'setting' in params:
         if params['setting'] == 'reset_credentials':

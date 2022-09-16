@@ -5,9 +5,10 @@ A Kodi-agnostic library for CMore
 import os
 import json
 import codecs
-import cookielib
+import http.cookiejar
 import time
-import urlparse
+import unicodedata
+import urllib.parse
 
 import calendar
 from datetime import datetime, timedelta
@@ -22,7 +23,7 @@ class CMore(object):
         self.tempdir = os.path.join(settings_folder, 'tmp')
         if not os.path.exists(self.tempdir):
             os.makedirs(self.tempdir)
-        self.cookie_jar = cookielib.LWPCookieJar(os.path.join(self.settings_folder, 'cookie_file'))
+        self.cookie_jar = http.cookiejar.LWPCookieJar(os.path.join(self.settings_folder, 'cookie_file'))
         self.config_path = os.path.join(self.settings_folder, 'configuration.json')
         self.config = self.get_config()
 
@@ -42,12 +43,12 @@ class CMore(object):
     def log(self, string):
         if self.debug:
             try:
-                print '[CMore]: %s' % string
+                print('[CMore]: %s' % string)
             except UnicodeEncodeError:
                 # we can't anticipate everything in unicode they might throw at
                 # us, but we can handle a simple BOM
-                bom = unicode(codecs.BOM_UTF8, 'utf8')
-                print '[CMore]: %s' % string.replace(bom, '')
+                bom = unicodedata(codecs.BOM_UTF8, 'utf8')
+                print('[CMore]: %s' % string.replace(bom, ''))
             except:
                 pass
 
@@ -151,13 +152,13 @@ class CMore(object):
     # Get actual dataurl for target and return content
     def get_target_path(self, target):
         paths = self.get_page(page_type='/paths')
-        parsed = urlparse.urlparse(target)
+        parsed = urllib.parse.urlparse.urlparse(target)
 
         for i in paths:
             if i['path'] == parsed.path:
 
                 params = {
-                    'sort': urlparse.parse_qs(parsed.query)['sort'],
+                    'sort': urllib.parse.urlparse.parse_qs(parsed.query)['sort'],
                     'size': 100
                 }
                 data = json.loads(self.make_request(i['dataUrl'], 'get', params=params))

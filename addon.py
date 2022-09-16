@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from urlparse import parse_qsl
+from urllib.parse import parse_qsl
 import json
 
 from resources.lib.kodihelper import KodiHelper

@@ -115,7 +115,7 @@ class CMore(object):
 
     def download_config(self):
         """Download the C More configuration."""
-        url = 'https://www.katsomo.fi/mb/v2/static/svod/web/config/web'
+        url = 'https://www.katsomo.fi/mb/v3/static/svod/web/config/web'
 
         config_data = self.make_request(url, 'get', params='')
         self.log("The configuration is %s" % config_data)

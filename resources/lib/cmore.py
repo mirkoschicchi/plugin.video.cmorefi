@@ -153,13 +153,13 @@ class CMore(object):
     # Get actual dataurl for target and return content
     def get_target_path(self, target):
         paths = self.get_page(page_type='/paths')
-        parsed = urllib.parse.urlparse.urlparse(target)
+        parsed = urllib.parse.urlparse(target)
 
         for i in paths:
             if i['path'] == parsed.path:
 
                 params = {
-                    'sort': urllib.parse.urlparse.parse_qs(parsed.query)['sort'],
+                    'sort': urllib.parse.parse_qs(parsed.query)['sort'],
                     'size': 100
                 }
                 data = json.loads(self.make_request(i['dataUrl'], 'get', params=params))
